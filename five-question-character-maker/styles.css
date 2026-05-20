@@ -121,6 +121,12 @@ h2 {
   gap: 12px;
 }
 
+.quiz-head p {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
 #quizForm {
   display: grid;
   gap: 16px;
@@ -194,7 +200,7 @@ h2 {
 }
 
 .output:empty::before {
-  content: "5つ選ぶとここにPromptが出ます。";
+  content: "9つ選ぶと、本の世界での姿がここに出ます。";
   color: var(--muted);
 }
 

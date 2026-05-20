@@ -1,76 +1,130 @@
 const questions = [
   {
-    id: "color",
-    text: "朝、最初に目に入ったら少し安心する色は？",
+    id: "book",
+    text: "棚の奥で、ひとりでに開いた本は？",
     choices: [
       {
-        label: "雨上がりの青",
+        label: "雨の装丁の本",
         data: {
-          title: "雨音を待つ案内役",
+          title: "雨頁の案内役",
+          world: "雨が降り続く書庫都市",
           style: "フィルム写真風",
-          hair: "青みのある黒髪のセミロング",
-          eyes: "静かな青い目",
-          outfit: "白いシャツと長いコート",
           mood: "ひんやりした透明感"
         }
       },
       {
-        label: "古い紙の白",
+        label: "白い余白の本",
         data: {
-          title: "余白に住む記録係",
+          title: "余白の記録係",
+          world: "白い余白でできた図書室",
           style: "水彩風",
-          hair: "白髪のショートボブ",
-          eyes: "透き通った目",
-          outfit: "白い上衣と薄いニット",
           mood: "静かで読みやすい空気"
         }
       },
       {
-        label: "夕方の橙",
+        label: "夕焼け色の本",
         data: {
-          title: "夕暮れの灯り番",
+          title: "夕頁の灯り番",
+          world: "夕暮れが終わらない街",
           style: "リソグラフ印刷風",
-          hair: "茶髪のボブ",
-          eyes: "琥珀色の目",
-          outfit: "大きめのパーカーとワイドパンツ",
           mood: "あたたかいけれど控えめ"
         }
       }
     ]
   },
   {
+    id: "color",
+    text: "ページの中で、最初に光った色は？",
+    choices: [
+      {
+        label: "雨上がりの青",
+        data: {
+          hair: "青みのある黒髪のセミロング",
+          eyes: "静かな青い目",
+          outfit: "白いシャツと長いコート"
+        }
+      },
+      {
+        label: "古い紙の白",
+        data: {
+          hair: "白髪のショートボブ",
+          eyes: "透き通った目",
+          outfit: "白い上衣と薄いニット"
+        }
+      },
+      {
+        label: "夕方の橙",
+        data: {
+          hair: "茶髪のボブ",
+          eyes: "琥珀色の目",
+          outfit: "大きめのパーカーとワイドパンツ"
+        }
+      }
+    ]
+  },
+  {
+    id: "role",
+    text: "本の世界で、最初に与えられた役目は？",
+    choices: [
+      {
+        label: "迷子を出口へ送る",
+        data: {
+          role: "迷子を出口へ送る案内役",
+          personality: "人の気配を静かに探せる",
+          action: "少し振り返っている"
+        }
+      },
+      {
+        label: "失くした名前を記録する",
+        data: {
+          role: "失くした名前を記録する書記",
+          personality: "小さな違和感を覚えていられる",
+          action: "本を読んでいる"
+        }
+      },
+      {
+        label: "消えそうな灯りを守る",
+        data: {
+          role: "消えそうな灯りを守る番人",
+          personality: "最後まで待つことができる",
+          action: "窓の外を見ている"
+        }
+      }
+    ]
+  },
+  {
     id: "pocket",
-    text: "ポケットに入っていたらうれしいものは？",
+    text: "転生した服のポケットに入っていたものは？",
     choices: [
       {
         label: "小さな鍵",
         data: {
           item: "腰に小さな鍵束",
-          personality: "秘密を守るのが得意",
-          feature: "小さなほくろ"
+          feature: "小さなほくろ",
+          power: "閉じたページを一度だけ開ける"
         }
       },
       {
         label: "折りたたんだ地図",
         data: {
           item: "胸に古い地図のメモ",
-          personality: "知らない場所でも静かに進む",
-          feature: "少し猫背"
+          feature: "少し猫背",
+          power: "まだ書かれていない道を見つける"
         }
       },
       {
         label: "透明な石",
         data: {
           item: "胸に小さな透明石のペンダント",
-          personality: "光の変化に気づきやすい",
-          feature: "長いまつげ"
+          feature: "長いまつげ",
+          power: "嘘のない光だけを反射する"
         }
       }
     ]
   },
   {
     id: "place",
-    text: "知らない街で、つい入ってしまう場所は？",
+    text: "ページの向こうで、最初に立っていた場所は？",
     choices: [
       {
         label: "古い図書室",
@@ -99,8 +153,35 @@ const questions = [
     ]
   },
   {
+    id: "mark",
+    text: "手の甲に浮かんだ小さなしるしは？",
+    choices: [
+      {
+        label: "細い月",
+        data: {
+          mark: "手の甲に細い月のしるし",
+          accessory: "頭に薄いベール"
+        }
+      },
+      {
+        label: "欠けた栞",
+        data: {
+          mark: "手の甲に欠けた栞のしるし",
+          accessory: "胸に小さなブローチ"
+        }
+      },
+      {
+        label: "淡いインク跡",
+        data: {
+          mark: "指先に淡いインク跡",
+          accessory: "腕に細いリボン"
+        }
+      }
+    ]
+  },
+  {
     id: "sound",
-    text: "遠くで聞こえたら、少し立ち止まる音は？",
+    text: "物語の奥から聞こえた音は？",
     choices: [
       {
         label: "雨音",
@@ -130,7 +211,7 @@ const questions = [
   },
   {
     id: "shape",
-    text: "最後に画面に残したい形は？",
+    text: "挿絵として最後に残したい形は？",
     choices: [
       {
         label: "細い線",
@@ -157,6 +238,33 @@ const questions = [
         }
       }
     ]
+  },
+  {
+    id: "memory",
+    text: "転生前から、ひとつだけ残った記憶は？",
+    choices: [
+      {
+        label: "誰かを待っていたこと",
+        data: {
+          memory: "誰かを待っていた記憶だけが残っている",
+          framing: "静かなキャラクターカードとして出力"
+        }
+      },
+      {
+        label: "窓辺の光",
+        data: {
+          memory: "窓辺の光を覚えている",
+          framing: "リアルポートレートとして出力"
+        }
+      },
+      {
+        label: "名前を書きかけたこと",
+        data: {
+          memory: "名前を書きかけた記憶がある",
+          framing: "本の挿絵のような一枚絵として出力"
+        }
+      }
+    ]
   }
 ];
 
@@ -165,6 +273,7 @@ const output = document.querySelector("#output");
 const copyButton = document.querySelector("#copyButton");
 const randomButton = document.querySelector("#randomButton");
 const characterTitle = document.querySelector("#characterTitle");
+const progress = document.querySelector("#progress");
 const answers = {};
 
 function sentence(value) {
@@ -184,9 +293,16 @@ function buildPrompt(data) {
   if (!required) return "";
 
   return [
+    "以下の内容で、本の世界に迷い込んで転生したオリジナルキャラクターを画像として出力する。",
+    "現代の人物ではなく、物語の中で新しい役目を得たキャラクターとして描く。",
+    "",
+    sentence(data.title),
+    sentence(data.world),
+    sentence(data.role),
+    sentence(data.framing || data.outputMode),
+    "",
     sentence(data.style),
     sentence(data.outline),
-    sentence(data.outputMode),
     "",
     "6頭身。",
     "年齢不詳。",
@@ -201,6 +317,8 @@ function buildPrompt(data) {
     "",
     sentence(data.outfit),
     sentence(data.item),
+    sentence(data.accessory),
+    sentence(data.mark),
     "",
     "斜め前を向いている。",
     "バストアップ。",
@@ -213,6 +331,8 @@ function buildPrompt(data) {
     "",
     sentence(data.mood),
     sentence(data.personality),
+    sentence(data.power),
+    sentence(data.memory),
     sentence(data.outputTypeNote),
     "",
     `「${sentence(data.line)}」`
@@ -222,9 +342,11 @@ function buildPrompt(data) {
 function render() {
   const data = mergeAnswerData();
   const prompt = buildPrompt(data);
+  const answered = questions.filter((question) => answers[question.id]).length;
   output.textContent = prompt;
   copyButton.disabled = !prompt;
-  characterTitle.textContent = prompt ? data.title : "まだ質問を選んでいません。";
+  characterTitle.textContent = prompt ? data.title : "まだ本は開かれていません。";
+  progress.textContent = `${answered} / ${questions.length}`;
 
   document.querySelectorAll(".choice").forEach((button) => {
     button.classList.toggle("is-active", answers[button.dataset.question] === button.dataset.value);

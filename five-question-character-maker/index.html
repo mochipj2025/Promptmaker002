@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="5つの何気ない質問から、画像生成AI向けのオリジナルキャラクタープロンプトを作るツールです。">
-  <title>5問オリキャラMaker</title>
+  <meta name="description" content="本の世界に迷い込むような質問から、画像生成AI向けのオリジナルキャラクタープロンプトを作るツールです。">
+  <title>本の世界転生オリキャラMaker</title>
   <link rel="stylesheet" href="./styles.css">
   <script src="./app.js" defer></script>
 </head>
@@ -13,13 +13,16 @@
     <header class="hero">
       <a class="back-link" href="../">← トップに戻る</a>
       <p class="eyebrow">Promptmaker</p>
-      <h1>5問オリキャラMaker</h1>
-      <p>一見関係なさそうな5つの質問から、キャラクターの見た目、持ち物、世界観、空気感を組み立てます。</p>
+      <h1>本の世界転生オリキャラMaker</h1>
+      <p>古い本を開いたら、物語の中で別の姿になる。そんな小さな転生演出から、自キャラPromptを組み立てます。</p>
     </header>
 
-    <section class="panel quiz-panel" aria-label="5つの質問">
+    <section class="panel quiz-panel" aria-label="本の世界に入る質問">
       <div class="quiz-head">
-        <h2>質問</h2>
+        <div>
+          <h2>本を開く</h2>
+          <p id="progress">0 / 9</p>
+        </div>
         <button class="quiet" type="button" id="randomButton">おまかせ</button>
       </div>
       <form id="quizForm" autocomplete="off"></form>
@@ -29,7 +32,7 @@
       <div class="result-head">
         <div>
           <h2>完成Prompt</h2>
-          <p id="characterTitle">まだ質問を選んでいません。</p>
+          <p id="characterTitle">まだ本は開かれていません。</p>
         </div>
         <button class="primary" type="button" id="copyButton" disabled>コピー</button>
       </div>

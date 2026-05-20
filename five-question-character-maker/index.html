@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="5つの何気ない質問から、画像生成AI向けのオリジナルキャラクタープロンプトを作るツールです。">
+  <title>5問オリキャラMaker</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <a class="back-link" href="../">← トップに戻る</a>
+      <p class="eyebrow">Promptmaker</p>
+      <h1>5問オリキャラMaker</h1>
+      <p>一見関係なさそうな5つの質問から、キャラクターの見た目、持ち物、世界観、空気感を組み立てます。</p>
+    </header>
+
+    <section class="panel quiz-panel" aria-label="5つの質問">
+      <div class="quiz-head">
+        <h2>質問</h2>
+        <button class="quiet" type="button" id="randomButton">おまかせ</button>
+      </div>
+      <form id="quizForm" autocomplete="off"></form>
+    </section>
+
+    <section class="panel result-panel" aria-label="生成結果">
+      <div class="result-head">
+        <div>
+          <h2>完成Prompt</h2>
+          <p id="characterTitle">まだ質問を選んでいません。</p>
+        </div>
+        <button class="primary" type="button" id="copyButton" disabled>コピー</button>
+      </div>
+      <pre class="output" id="output" aria-live="polite"></pre>
+    </section>
+  </main>
+</body>
+</html>

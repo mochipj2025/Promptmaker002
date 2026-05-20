@@ -4,7 +4,7 @@ M.O.C.H.I. LABOのプロンプト制作ツール置き場です。
 
 ## Current Main Tool
 
-いま使う中心ツールは `simple-character-promptmaker/` と `content-kit/` です。
+いま使う中心ツールは `simple-character-promptmaker/`、`content-kit/`、`five-question-character-maker/` です。
 
 `dev/` は試作、記事メモ、旧入口を置く場所です。
 
@@ -39,6 +39,18 @@ M.O.C.H.I. LABOのプロンプト制作ツール置き場です。
   - 雑誌レイアウトや文字スペースを選ぶ
   - note見出し画像、SNSカルーセル、特集ページ向けにPromptを生成
   - 生成結果をコピー
+
+### 5問オリキャラMaker
+
+一見関係なさそうな5つの質問から、オリジナルキャラクターのPromptを作る体験型ツールです。
+
+- 場所: `five-question-character-maker/`
+- 入口: `index.html`
+- できること:
+  - 5つの選択からキャラクター要素を自動合成
+  - 色、持ち物、場所、音、形を見た目や世界観へ変換
+  - 自キャラ名のような短いタイトルを表示
+  - 完成Promptをコピー
 
 ## Dev Prototypes
 

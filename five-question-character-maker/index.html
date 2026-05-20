@@ -20,22 +20,32 @@
     <section class="panel quiz-panel" aria-label="本の世界に入る質問">
       <div class="quiz-head">
         <div>
-          <h2>本を開く</h2>
+          <h2 id="chapterTitle">本を開く</h2>
           <p id="progress">0 / 9</p>
         </div>
-        <button class="quiet" type="button" id="randomButton">おまかせ</button>
+        <div class="top-actions">
+          <button class="quiet" type="button" id="randomButton">おまかせ</button>
+          <button class="quiet" type="button" id="resetButton">閉じる</button>
+        </div>
       </div>
+      <div class="page-note" id="pageNote">本の余白に、まだ何も書かれていません。</div>
       <form id="quizForm" autocomplete="off"></form>
+      <div class="page-actions">
+        <button class="quiet" type="button" id="prevButton">前のページ</button>
+        <button class="primary" type="button" id="nextButton">次のページ</button>
+      </div>
     </section>
 
     <section class="panel result-panel" aria-label="生成結果">
       <div class="result-head">
         <div>
-          <h2>完成Prompt</h2>
+          <h2>転生記録</h2>
           <p id="characterTitle">まだ本は開かれていません。</p>
         </div>
         <button class="primary" type="button" id="copyButton" disabled>コピー</button>
       </div>
+      <div class="story" id="storyOutput">選んだページに合わせて、ここに転生後の姿が少しずつ現れます。</div>
+      <h2 class="prompt-title">画像生成Prompt</h2>
       <pre class="output" id="output" aria-live="polite"></pre>
     </section>
   </main>

@@ -1,7 +1,9 @@
 const questions = [
   {
     id: "book",
-    text: "棚の奥で、ひとりでに開いた本は？",
+    chapter: "第一頁 / 本が呼ぶ",
+    note: "棚の奥で、あなたの名前を知らない本がひとりでに開きました。",
+    text: "開いた本はどんな本？",
     choices: [
       {
         label: "雨の装丁の本",
@@ -33,8 +35,42 @@ const questions = [
     ]
   },
   {
+    id: "entry",
+    chapter: "第二頁 / 境目を越える",
+    note: "文字のすきまが、水面みたいに揺れています。どこから入るかで、世界の質感が変わります。",
+    text: "あなたはどこから本の中へ入る？",
+    choices: [
+      {
+        label: "余白の端から",
+        data: {
+          portal: "余白の端から物語へ入った",
+          composition: "人物を右寄せ、左に大きな余白",
+          outputTypeNote: "余白を活かした静かな構図"
+        }
+      },
+      {
+        label: "挿絵の窓から",
+        data: {
+          portal: "挿絵の窓から物語へ入った",
+          composition: "窓の光を背にしたバストアップ",
+          outputTypeNote: "光と影を静かに使う構図"
+        }
+      },
+      {
+        label: "栞の影から",
+        data: {
+          portal: "栞の影から物語へ入った",
+          composition: "下部に人物、上部に余白",
+          outputTypeNote: "カード化しやすい構図"
+        }
+      }
+    ]
+  },
+  {
     id: "color",
-    text: "ページの中で、最初に光った色は？",
+    chapter: "第三頁 / 姿が決まる",
+    note: "ページの中で最初に光った色が、髪と瞳に移ります。",
+    text: "最初に光った色は？",
     choices: [
       {
         label: "雨上がりの青",
@@ -64,7 +100,9 @@ const questions = [
   },
   {
     id: "role",
-    text: "本の世界で、最初に与えられた役目は？",
+    chapter: "第四頁 / 役目を受け取る",
+    note: "この世界では、名前より先に役目を渡されます。",
+    text: "最初に与えられた役目は？",
     choices: [
       {
         label: "迷子を出口へ送る",
@@ -94,7 +132,9 @@ const questions = [
   },
   {
     id: "pocket",
-    text: "転生した服のポケットに入っていたものは？",
+    chapter: "第五頁 / 持ち物を見つける",
+    note: "転生した服のポケットに、ひとつだけ道具が入っています。",
+    text: "入っていたものは？",
     choices: [
       {
         label: "小さな鍵",
@@ -124,7 +164,9 @@ const questions = [
   },
   {
     id: "place",
-    text: "ページの向こうで、最初に立っていた場所は？",
+    chapter: "第六頁 / 最初の場所",
+    note: "目を開けると、あなたはすでに物語のどこかに立っています。",
+    text: "最初に立っていた場所は？",
     choices: [
       {
         label: "古い図書室",
@@ -154,7 +196,9 @@ const questions = [
   },
   {
     id: "mark",
-    text: "手の甲に浮かんだ小さなしるしは？",
+    chapter: "第七頁 / しるしが浮かぶ",
+    note: "この世界に来た証として、身体のどこかに小さなしるしが浮かびます。",
+    text: "浮かんだしるしは？",
     choices: [
       {
         label: "細い月",
@@ -181,7 +225,9 @@ const questions = [
   },
   {
     id: "sound",
-    text: "物語の奥から聞こえた音は？",
+    chapter: "第八頁 / 奥から聞こえる",
+    note: "物語の奥から、あなたを呼ぶ音がします。",
+    text: "聞こえた音は？",
     choices: [
       {
         label: "雨音",
@@ -210,58 +256,33 @@ const questions = [
     ]
   },
   {
-    id: "shape",
-    text: "挿絵として最後に残したい形は？",
-    choices: [
-      {
-        label: "細い線",
-        data: {
-          outline: "細く淡い線",
-          composition: "人物を右寄せ、左に大きな余白",
-          outputTypeNote: "余白を活かした静かな構図"
-        }
-      },
-      {
-        label: "丸い光",
-        data: {
-          outline: "やわらかい薄い線",
-          composition: "中央に人物、周囲にやわらかい光",
-          outputTypeNote: "やわらかい光を添えた構図"
-        }
-      },
-      {
-        label: "四角い余白",
-        data: {
-          outline: "普通の濃さの線",
-          composition: "下部に人物、上部に余白",
-          outputTypeNote: "カード化しやすい構図"
-        }
-      }
-    ]
-  },
-  {
     id: "memory",
-    text: "転生前から、ひとつだけ残った記憶は？",
+    chapter: "第九頁 / 残った記憶",
+    note: "転生しても、ひとつだけ消えなかった記憶があります。",
+    text: "残っていた記憶は？",
     choices: [
       {
         label: "誰かを待っていたこと",
         data: {
           memory: "誰かを待っていた記憶だけが残っている",
-          framing: "静かなキャラクターカードとして出力"
+          framing: "静かなキャラクターカードとして出力",
+          outline: "細く淡い線"
         }
       },
       {
         label: "窓辺の光",
         data: {
           memory: "窓辺の光を覚えている",
-          framing: "リアルポートレートとして出力"
+          framing: "リアルポートレートとして出力",
+          outline: "やわらかい薄い線"
         }
       },
       {
         label: "名前を書きかけたこと",
         data: {
           memory: "名前を書きかけた記憶がある",
-          framing: "本の挿絵のような一枚絵として出力"
+          framing: "本の挿絵のような一枚絵として出力",
+          outline: "普通の濃さの線"
         }
       }
     ]
@@ -272,9 +293,16 @@ const form = document.querySelector("#quizForm");
 const output = document.querySelector("#output");
 const copyButton = document.querySelector("#copyButton");
 const randomButton = document.querySelector("#randomButton");
+const resetButton = document.querySelector("#resetButton");
+const prevButton = document.querySelector("#prevButton");
+const nextButton = document.querySelector("#nextButton");
 const characterTitle = document.querySelector("#characterTitle");
+const chapterTitle = document.querySelector("#chapterTitle");
+const pageNote = document.querySelector("#pageNote");
 const progress = document.querySelector("#progress");
+const storyOutput = document.querySelector("#storyOutput");
 const answers = {};
+let currentIndex = 0;
 
 function sentence(value) {
   if (!value) return "";
@@ -288,9 +316,33 @@ function mergeAnswerData() {
   }, {});
 }
 
+function answeredCount() {
+  return questions.filter((question) => answers[question.id]).length;
+}
+
+function isComplete() {
+  return answeredCount() === questions.length;
+}
+
+function buildStory(data) {
+  if (!answeredCount()) {
+    return "本はまだ閉じています。\nページを選ぶと、あなたの転生後の姿が少しずつ書き込まれます。";
+  }
+
+  const lines = [
+    data.title ? `名前: ${data.title}` : "",
+    data.world ? `世界: ${data.world}` : "",
+    data.portal ? `入口: ${data.portal}` : "",
+    data.role ? `役目: ${data.role}` : "",
+    data.power ? `力: ${data.power}` : "",
+    data.memory ? `残った記憶: ${data.memory}` : ""
+  ].filter(Boolean);
+
+  return lines.join("\n");
+}
+
 function buildPrompt(data) {
-  const required = questions.every((question) => answers[question.id]);
-  if (!required) return "";
+  if (!isComplete()) return "";
 
   return [
     "以下の内容で、本の世界に迷い込んで転生したオリジナルキャラクターを画像として出力する。",
@@ -298,6 +350,7 @@ function buildPrompt(data) {
     "",
     sentence(data.title),
     sentence(data.world),
+    sentence(data.portal),
     sentence(data.role),
     sentence(data.framing || data.outputMode),
     "",
@@ -339,31 +392,47 @@ function buildPrompt(data) {
   ].join("\n");
 }
 
+function renderQuestion() {
+  const question = questions[currentIndex];
+  chapterTitle.textContent = question.chapter;
+  pageNote.textContent = question.note;
+  form.innerHTML = `
+    <section class="question" aria-labelledby="${question.id}-title">
+      <p id="${question.id}-title">${question.text}</p>
+      <div class="choices">
+        ${question.choices.map((choice) => (
+          `<button class="choice${answers[question.id] === choice.label ? " is-active" : ""}" type="button" data-question="${question.id}" data-value="${choice.label}">${choice.label}</button>`
+        )).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function render() {
   const data = mergeAnswerData();
   const prompt = buildPrompt(data);
-  const answered = questions.filter((question) => answers[question.id]).length;
+  renderQuestion();
+  storyOutput.textContent = buildStory(data);
   output.textContent = prompt;
   copyButton.disabled = !prompt;
-  characterTitle.textContent = prompt ? data.title : "まだ本は開かれていません。";
-  progress.textContent = `${answered} / ${questions.length}`;
-
-  document.querySelectorAll(".choice").forEach((button) => {
-    button.classList.toggle("is-active", answers[button.dataset.question] === button.dataset.value);
-  });
+  characterTitle.textContent = data.title || "まだ本は開かれていません。";
+  progress.textContent = `${answeredCount()} / ${questions.length}`;
+  prevButton.disabled = currentIndex === 0;
+  nextButton.textContent = currentIndex === questions.length - 1 ? "最後のページ" : "次のページ";
 }
 
-function createQuiz() {
-  form.innerHTML = questions.map((question, index) => (
-    `<section class="question" aria-labelledby="${question.id}-title">
-      <p id="${question.id}-title">${index + 1}. ${question.text}</p>
-      <div class="choices">
-        ${question.choices.map((choice) => (
-          `<button class="choice" type="button" data-question="${question.id}" data-value="${choice.label}">${choice.label}</button>`
-        )).join("")}
-      </div>
-    </section>`
-  )).join("");
+function goNext() {
+  if (currentIndex < questions.length - 1) {
+    currentIndex += 1;
+    render();
+  }
+}
+
+function goPrev() {
+  if (currentIndex > 0) {
+    currentIndex -= 1;
+    render();
+  }
 }
 
 function copyFallback(text) {
@@ -405,6 +474,13 @@ function randomize() {
     const choice = question.choices[Math.floor(Math.random() * question.choices.length)];
     answers[question.id] = choice.label;
   });
+  currentIndex = questions.length - 1;
+  render();
+}
+
+function resetBook() {
+  Object.keys(answers).forEach((key) => delete answers[key]);
+  currentIndex = 0;
   render();
 }
 
@@ -417,6 +493,8 @@ form.addEventListener("click", (event) => {
 
 copyButton.addEventListener("click", copyPrompt);
 randomButton.addEventListener("click", randomize);
+resetButton.addEventListener("click", resetBook);
+prevButton.addEventListener("click", goPrev);
+nextButton.addEventListener("click", goNext);
 
-createQuiz();
 render();

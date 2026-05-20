@@ -121,28 +121,46 @@ h2 {
   gap: 12px;
 }
 
+.top-actions,
+.page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.page-actions {
+  margin-top: 16px;
+}
+
+.page-actions .quiet,
+.page-actions .primary {
+  flex: 1;
+}
+
 .quiz-head p {
   margin-top: 2px;
   color: var(--muted);
   font-size: 12px;
 }
 
+.page-note {
+  margin-top: 12px;
+  border-left: 3px solid var(--accent);
+  padding: 8px 0 8px 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
 #quizForm {
   display: grid;
-  gap: 16px;
+  gap: 12px;
   margin-top: 12px;
 }
 
 .question {
   display: grid;
-  gap: 8px;
-  border-top: 1px solid var(--line);
-  padding-top: 14px;
-}
-
-.question:first-child {
-  border-top: 0;
-  padding-top: 0;
+  gap: 10px;
+  min-height: 240px;
 }
 
 .question p {
@@ -152,20 +170,21 @@ h2 {
 }
 
 .choices {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: 8px;
 }
 
 .choice {
-  min-height: 40px;
+  width: 100%;
+  min-height: 48px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  padding: 8px 10px;
+  padding: 10px 12px;
   background: transparent;
   color: var(--muted);
+  text-align: left;
   font-size: 13px;
-  line-height: 1.45;
+  line-height: 1.55;
 }
 
 .choice.is-active {
@@ -185,6 +204,22 @@ h2 {
   margin-top: 2px;
   color: var(--muted);
   font-size: 12px;
+}
+
+.story {
+  margin-top: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  background: var(--soft);
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+.prompt-title {
+  margin-top: 16px;
 }
 
 .output {

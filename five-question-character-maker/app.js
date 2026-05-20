@@ -303,6 +303,7 @@ const progress = document.querySelector("#progress");
 const storyOutput = document.querySelector("#storyOutput");
 const answers = {};
 let currentIndex = 0;
+const decorationPrompt = "古い魔導書の挿絵ページのように、羊皮紙の生成り、焦げ茶のインク、鈍い金の細い罫線、控えめな角飾りを入れる。派手な発光や強いゲームUI感は避け、静かな異世界ファンタジーとしてまとめる";
 
 function sentence(value) {
   if (!value) return "";
@@ -347,6 +348,7 @@ function buildPrompt(data) {
   return [
     "以下の内容で、本の世界に迷い込んで転生したオリジナルキャラクターを画像として出力する。",
     "現代の人物ではなく、物語の中で新しい役目を得たキャラクターとして描く。",
+    sentence(decorationPrompt),
     "",
     sentence(data.title),
     sentence(data.world),

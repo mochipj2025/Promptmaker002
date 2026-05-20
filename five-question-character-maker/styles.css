@@ -220,6 +220,8 @@ h2 {
 }
 
 .choice {
+  display: grid;
+  gap: 3px;
   width: 100%;
   min-height: 52px;
   border: 1px solid rgba(107, 79, 39, 0.52);
@@ -232,6 +234,16 @@ h2 {
   text-align: left;
   font-size: 13px;
   line-height: 1.55;
+}
+
+.choice-label {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.choice-hint {
+  color: var(--muted);
+  font-size: 12px;
 }
 
 .choice:hover,
@@ -294,7 +306,7 @@ h2 {
 }
 
 .output:empty::before {
-  content: "9つ選ぶと、本の世界での姿がここに出ます。";
+  content: "10こ選ぶと、本の世界での姿がここに出ます。";
   color: var(--muted);
 }
 

@@ -1,12 +1,13 @@
 const questions = [
   {
     id: "book",
-    chapter: "第一頁 / 本が呼ぶ",
-    note: "棚の奥で、あなたの名前を知らない本がひとりでに開きました。",
-    text: "開いた本はどんな本？",
+    chapter: "第一頁 / 世界観を選ぶ",
+    note: "ここで、キャラクターが生まれる世界の空気感と絵柄の方向が決まります。",
+    text: "どんな世界の本に入りたい？",
     choices: [
       {
         label: "雨の装丁の本",
+        hint: "雨の書庫都市。青黒い髪、静かな透明感。",
         data: {
           title: "雨頁の案内役",
           world: "雨が降り続く書庫都市",
@@ -16,6 +17,7 @@ const questions = [
       },
       {
         label: "白い余白の本",
+        hint: "白い図書室。白髪、余白の多い水彩風。",
         data: {
           title: "余白の記録係",
           world: "白い余白でできた図書室",
@@ -25,6 +27,7 @@ const questions = [
       },
       {
         label: "夕焼け色の本",
+        hint: "夕暮れの街。茶髪、あたたかい印刷風。",
         data: {
           title: "夕頁の灯り番",
           world: "夕暮れが終わらない街",
@@ -36,12 +39,13 @@ const questions = [
   },
   {
     id: "entry",
-    chapter: "第二頁 / 境目を越える",
-    note: "文字のすきまが、水面みたいに揺れています。どこから入るかで、世界の質感が変わります。",
-    text: "あなたはどこから本の中へ入る？",
+    chapter: "第二頁 / 構図を選ぶ",
+    note: "本へ入る場所によって、余白、光、カード化しやすさなどの構図が変わります。",
+    text: "キャラクターをどんな構図で見せたい？",
     choices: [
       {
-        label: "余白の端から",
+        label: "余白を大きく見せる",
+        hint: "人物を右寄せ。静かな余白を主役にする。",
         data: {
           portal: "余白の端から物語へ入った",
           composition: "人物を右寄せ、左に大きな余白",
@@ -49,7 +53,8 @@ const questions = [
         }
       },
       {
-        label: "挿絵の窓から",
+        label: "窓の光で見せる",
+        hint: "背後に光。バストアップで雰囲気を出す。",
         data: {
           portal: "挿絵の窓から物語へ入った",
           composition: "窓の光を背にしたバストアップ",
@@ -57,7 +62,8 @@ const questions = [
         }
       },
       {
-        label: "栞の影から",
+        label: "カード風に見せる",
+        hint: "上に余白。SNSやカード素材にしやすい。",
         data: {
           portal: "栞の影から物語へ入った",
           composition: "下部に人物、上部に余白",
@@ -68,44 +74,91 @@ const questions = [
   },
   {
     id: "color",
-    chapter: "第三頁 / 姿が決まる",
-    note: "ページの中で最初に光った色が、髪と瞳に移ります。",
-    text: "最初に光った色は？",
+    chapter: "第三頁 / 髪と目を選ぶ",
+    note: "色を選ぶと、髪色、髪型、目、顔立ち、服の基本がまとまって決まります。",
+    text: "どんな色のキャラクターにしたい？",
     choices: [
       {
-        label: "雨上がりの青",
+        label: "青黒い髪と青い目",
+        hint: "涼しげ。白シャツと長いコート。",
         data: {
           hair: "青みのある黒髪のセミロング",
           eyes: "静かな青い目",
+          faceType: "涼しげな顔立ち",
           outfit: "白いシャツと長いコート"
         }
       },
       {
-        label: "古い紙の白",
+        label: "白髪と透き通った目",
+        hint: "人形のよう。白い上衣と薄いニット。",
         data: {
           hair: "白髪のショートボブ",
           eyes: "透き通った目",
+          faceType: "人形のような顔",
           outfit: "白い上衣と薄いニット"
         }
       },
       {
-        label: "夕方の橙",
+        label: "茶髪と琥珀色の目",
+        hint: "やわらかい。大きめパーカーとワイドパンツ。",
         data: {
           hair: "茶髪のボブ",
           eyes: "琥珀色の目",
+          faceType: "やわらかい顔",
           outfit: "大きめのパーカーとワイドパンツ"
         }
       }
     ]
   },
   {
-    id: "role",
-    chapter: "第四頁 / 役目を受け取る",
-    note: "この世界では、名前より先に役目を渡されます。",
-    text: "最初に与えられた役目は？",
+    id: "gender",
+    chapter: "第四頁 / 性別表現を選ぶ",
+    note: "ここで、Promptに入る性別表現と体型の方向を決めます。中性的に固定されることはありません。",
+    text: "どの性別表現で描きたい？",
     choices: [
       {
-        label: "迷子を出口へ送る",
+        label: "女性として描く",
+        hint: "女性キャラクター。しなやかな体型。",
+        data: {
+          gender: "女性キャラクターとして描く",
+          bodyType: "しなやかな体型"
+        }
+      },
+      {
+        label: "男性として描く",
+        hint: "男性キャラクター。すらっとした体型。",
+        data: {
+          gender: "男性キャラクターとして描く",
+          bodyType: "すらっとした体型"
+        }
+      },
+      {
+        label: "性別不明として描く",
+        hint: "性別を断定しない。華奢な体型。",
+        data: {
+          gender: "性別不明のキャラクターとして描く",
+          bodyType: "華奢な体型"
+        }
+      },
+      {
+        label: "中性的に描く",
+        hint: "あえて中性的にしたいときだけ選ぶ。",
+        data: {
+          gender: "中性的なキャラクターとして描く",
+          bodyType: "中性的な体型"
+        }
+      }
+    ]
+  },
+  {
+    id: "role",
+    chapter: "第五頁 / 役割とポーズを選ぶ",
+    note: "役割を選ぶと、キャラクターの性格、行動、立ち姿の方向が決まります。",
+    text: "このキャラクターは何をする人？",
+    choices: [
+      {
+        label: "迷子を案内する",
+        hint: "案内役。少し振り返るポーズ。",
         data: {
           role: "迷子を出口へ送る案内役",
           personality: "人の気配を静かに探せる",
@@ -113,7 +166,8 @@ const questions = [
         }
       },
       {
-        label: "失くした名前を記録する",
+        label: "名前を記録する",
+        hint: "書記。本を読むポーズ。",
         data: {
           role: "失くした名前を記録する書記",
           personality: "小さな違和感を覚えていられる",
@@ -121,7 +175,8 @@ const questions = [
         }
       },
       {
-        label: "消えそうな灯りを守る",
+        label: "灯りを守る",
+        hint: "番人。窓の外を見るポーズ。",
         data: {
           role: "消えそうな灯りを守る番人",
           personality: "最後まで待つことができる",
@@ -132,12 +187,13 @@ const questions = [
   },
   {
     id: "pocket",
-    chapter: "第五頁 / 持ち物を見つける",
-    note: "転生した服のポケットに、ひとつだけ道具が入っています。",
-    text: "入っていたものは？",
+    chapter: "第六頁 / 小物と特徴を選ぶ",
+    note: "持ち物を選ぶと、装飾アイテム、身体的な特徴、使える力が決まります。",
+    text: "キャラクターに持たせたい小物は？",
     choices: [
       {
         label: "小さな鍵",
+        hint: "腰に鍵束。閉じたページを開ける力。",
         data: {
           item: "腰に小さな鍵束",
           feature: "小さなほくろ",
@@ -146,6 +202,7 @@ const questions = [
       },
       {
         label: "折りたたんだ地図",
+        hint: "胸に地図のメモ。道を見つける力。",
         data: {
           item: "胸に古い地図のメモ",
           feature: "少し猫背",
@@ -154,6 +211,7 @@ const questions = [
       },
       {
         label: "透明な石",
+        hint: "ペンダント。嘘のない光を映す力。",
         data: {
           item: "胸に小さな透明石のペンダント",
           feature: "長いまつげ",
@@ -164,12 +222,13 @@ const questions = [
   },
   {
     id: "place",
-    chapter: "第六頁 / 最初の場所",
-    note: "目を開けると、あなたはすでに物語のどこかに立っています。",
-    text: "最初に立っていた場所は？",
+    chapter: "第七頁 / 背景を選ぶ",
+    note: "ここで、画像の背景、周辺アイテム、最終的な場面の見え方が決まります。",
+    text: "どこに立たせたい？",
     choices: [
       {
         label: "古い図書室",
+        hint: "本、しおり、木の机。静かな室内。",
         data: {
           background: "古い図書室",
           action: "本を読んでいる",
@@ -178,6 +237,7 @@ const questions = [
       },
       {
         label: "夜の駅",
+        hint: "駅の灯り、濡れた床。少し物語が動く。",
         data: {
           background: "夜の駅",
           action: "少し振り返っている",
@@ -186,6 +246,7 @@ const questions = [
       },
       {
         label: "白い部屋",
+        hint: "白い椅子、薄いカーテン、自然光。",
         data: {
           background: "白い部屋",
           action: "窓の外を見ている",
@@ -196,12 +257,13 @@ const questions = [
   },
   {
     id: "mark",
-    chapter: "第七頁 / しるしが浮かぶ",
-    note: "この世界に来た証として、身体のどこかに小さなしるしが浮かびます。",
-    text: "浮かんだしるしは？",
+    chapter: "第八頁 / しるしと装飾を選ぶ",
+    note: "しるしを選ぶと、身体に入る小さな特徴とアクセサリーが決まります。",
+    text: "どんなしるしを入れたい？",
     choices: [
       {
         label: "細い月",
+        hint: "手の甲に月。頭に薄いベール。",
         data: {
           mark: "手の甲に細い月のしるし",
           accessory: "頭に薄いベール"
@@ -209,6 +271,7 @@ const questions = [
       },
       {
         label: "欠けた栞",
+        hint: "手の甲に栞。胸に小さなブローチ。",
         data: {
           mark: "手の甲に欠けた栞のしるし",
           accessory: "胸に小さなブローチ"
@@ -216,6 +279,7 @@ const questions = [
       },
       {
         label: "淡いインク跡",
+        hint: "指先にインク。腕に細いリボン。",
         data: {
           mark: "指先に淡いインク跡",
           accessory: "腕に細いリボン"
@@ -225,12 +289,13 @@ const questions = [
   },
   {
     id: "sound",
-    chapter: "第八頁 / 奥から聞こえる",
-    note: "物語の奥から、あなたを呼ぶ音がします。",
-    text: "聞こえた音は？",
+    chapter: "第九頁 / 表情を選ぶ",
+    note: "聞こえる音を選ぶと、表情と一言、出力タイプの方向が決まります。",
+    text: "どんな表情にしたい？",
     choices: [
       {
-        label: "雨音",
+        label: "遠くを見る表情",
+        hint: "雨音。リアルポートレート寄り。",
         data: {
           expression: "遠くを見ている表情",
           line: "雨音だけが、少し近かった",
@@ -238,7 +303,8 @@ const questions = [
         }
       },
       {
-        label: "紙をめくる音",
+        label: "静かな表情",
+        hint: "紙をめくる音。キャラクターカード寄り。",
         data: {
           expression: "静かな表情",
           line: "物語はまだ閉じていなかった",
@@ -246,7 +312,8 @@ const questions = [
         }
       },
       {
-        label: "小さな鈴",
+        label: "少し笑っている",
+        hint: "小さな鈴。一枚絵寄り。",
         data: {
           expression: "少し笑っている",
           line: "名前を呼ばれた気がした",
@@ -257,12 +324,13 @@ const questions = [
   },
   {
     id: "memory",
-    chapter: "第九頁 / 残った記憶",
-    note: "転生しても、ひとつだけ消えなかった記憶があります。",
-    text: "残っていた記憶は？",
+    chapter: "第十頁 / 仕上げを選ぶ",
+    note: "最後に、キャラクターの余韻、出力形式、線の濃さを決めます。",
+    text: "最後にどんな余韻を残したい？",
     choices: [
       {
-        label: "誰かを待っていたこと",
+        label: "誰かを待っていた",
+        hint: "静かなキャラクターカード。淡い細線。",
         data: {
           memory: "誰かを待っていた記憶だけが残っている",
           framing: "静かなキャラクターカードとして出力",
@@ -270,7 +338,8 @@ const questions = [
         }
       },
       {
-        label: "窓辺の光",
+        label: "窓辺の光を覚えている",
+        hint: "リアルポートレート。やわらかい薄線。",
         data: {
           memory: "窓辺の光を覚えている",
           framing: "リアルポートレートとして出力",
@@ -278,7 +347,8 @@ const questions = [
         }
       },
       {
-        label: "名前を書きかけたこと",
+        label: "名前を書きかけた",
+        hint: "本の挿絵の一枚絵。普通の線。",
         data: {
           memory: "名前を書きかけた記憶がある",
           framing: "本の挿絵のような一枚絵として出力",
@@ -334,6 +404,7 @@ function buildStory(data) {
     data.title ? `名前: ${data.title}` : "",
     data.world ? `世界: ${data.world}` : "",
     data.portal ? `入口: ${data.portal}` : "",
+    data.gender ? `性別表現: ${data.gender}` : "",
     data.role ? `役目: ${data.role}` : "",
     data.power ? `力: ${data.power}` : "",
     data.memory ? `残った記憶: ${data.memory}` : ""
@@ -353,6 +424,7 @@ function buildPrompt(data) {
     sentence(data.title),
     sentence(data.world),
     sentence(data.portal),
+    sentence(data.gender),
     sentence(data.role),
     sentence(data.framing || data.outputMode),
     "",
@@ -361,9 +433,9 @@ function buildPrompt(data) {
     "",
     "6頭身。",
     "年齢不詳。",
-    "中性的な体型。",
+    sentence(data.bodyType),
     "",
-    "中性的な顔。",
+    sentence(data.faceType),
     sentence(data.expression),
     sentence(data.feature),
     "",
@@ -403,7 +475,10 @@ function renderQuestion() {
       <p id="${question.id}-title">${question.text}</p>
       <div class="choices">
         ${question.choices.map((choice) => (
-          `<button class="choice${answers[question.id] === choice.label ? " is-active" : ""}" type="button" data-question="${question.id}" data-value="${choice.label}">${choice.label}</button>`
+          `<button class="choice${answers[question.id] === choice.label ? " is-active" : ""}" type="button" data-question="${question.id}" data-value="${choice.label}">
+            <span class="choice-label">${choice.label}</span>
+            <span class="choice-hint">${choice.hint}</span>
+          </button>`
         )).join("")}
       </div>
     </section>

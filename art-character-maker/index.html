@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="水彩、絵本、版画、切り絵など、アート寄りのキャラクタープロンプトを作るツールです。">
+  <title>アートキャラクターMaker</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <div>
+        <a class="back-link" href="../">← トップに戻る</a>
+        <p class="eyebrow">プロンプトメーカー</p>
+        <h1>アートキャラクターMaker</h1>
+        <p>水彩、絵本、版画、切り絵など、素材感と余白を大切にしたキャラクターPromptを作ります。</p>
+      </div>
+      <button class="mode-button" type="button" id="modeButton" aria-pressed="false">暗色</button>
+    </header>
+
+    <div class="quick-actions" aria-label="すぐ使う操作">
+      <button class="primary-action" type="button" id="randomButton">おまかせ</button>
+      <button class="quiet-button" type="button" id="sampleButton">例を入れる</button>
+      <button class="quiet-button" type="reset" form="promptForm">空にする</button>
+      <a class="quiet-link" href="../simple-character-promptmaker/">詳細編集へ</a>
+    </div>
+
+    <section class="preset-panel" aria-label="アートプリセット">
+      <div class="preset-head">
+        <h2>プリセット</h2>
+        <p>絵柄と質感を選んで、あとで細部を直す。</p>
+      </div>
+      <div class="preset-actions" id="presetActions"></div>
+    </section>
+
+    <section class="panel output-panel" aria-label="生成結果">
+      <div class="panel-head">
+        <h2>出力</h2>
+        <button class="copy-button" type="button" id="copyButton" disabled>コピー</button>
+      </div>
+      <pre class="prompt-output" id="promptOutput" aria-live="polite"></pre>
+    </section>
+
+    <form class="panel form-panel" id="promptForm" autocomplete="off">
+      <section class="group" aria-labelledby="styleTitle">
+        <h2 id="styleTitle">絵柄と質感</h2>
+        <div class="field"><label for="style">スタイル</label><input id="style" name="style" placeholder="水彩風"></div>
+        <div class="field"><label for="materialTexture">質感</label><input id="materialTexture" name="materialTexture" placeholder="淡いにじみと紙の質感"></div>
+        <div class="field"><label for="outputMode">出力形式</label><input id="outputMode" name="outputMode" placeholder="一枚絵として出力"></div>
+      </section>
+
+      <section class="group" aria-labelledby="basicTitle">
+        <h2 id="basicTitle">基本</h2>
+        <div class="field"><label for="proportion">頭身</label><input id="proportion" name="proportion" placeholder="5頭身"></div>
+        <div class="field"><label for="age">年齢</label><input id="age" name="age" placeholder="年齢不詳"></div>
+        <div class="field"><label for="gender">性別表現</label><input id="gender" name="gender" placeholder="性別不明のキャラクター"></div>
+        <div class="field"><label for="species">種族</label><input id="species" name="species" placeholder="精霊"></div>
+        <div class="field"><label for="skinTone">肌の色</label><input id="skinTone" name="skinTone" placeholder="透明感のある肌"></div>
+        <div class="field"><label for="bodyType">体型</label><input id="bodyType" name="bodyType" placeholder="華奢"></div>
+      </section>
+
+      <section class="group" aria-labelledby="faceTitle">
+        <h2 id="faceTitle">顔</h2>
+        <div class="field"><label for="faceType">顔立ち</label><input id="faceType" name="faceType" placeholder="やわらかい顔"></div>
+        <div class="field"><label for="expression">表情</label><input id="expression" name="expression" placeholder="静かな表情"></div>
+      </section>
+
+      <section class="group" aria-labelledby="hairTitle">
+        <h2 id="hairTitle">髪と目</h2>
+        <div class="field"><label for="hairColor">髪色</label><input id="hairColor" name="hairColor" placeholder="白髪"></div>
+        <div class="field"><label for="hairStyle">髪型</label><input id="hairStyle" name="hairStyle" placeholder="セミロング"></div>
+        <div class="field"><label for="eyes">目</label><input id="eyes" name="eyes" placeholder="透き通った目"></div>
+      </section>
+
+      <section class="group" aria-labelledby="outfitTitle">
+        <h2 id="outfitTitle">服と象徴</h2>
+        <div class="field"><label for="outerTop">衣装上</label><input id="outerTop" name="outerTop" placeholder="白いシャツ"></div>
+        <div class="field"><label for="inner">インナー</label><input id="inner" name="inner" placeholder="薄いニット"></div>
+        <div class="field"><label for="bottom">衣装下</label><input id="bottom" name="bottom" placeholder="ロングスカート"></div>
+        <div class="field"><label for="symbolItem">象徴アイテム</label><input id="symbolItem" name="symbolItem" placeholder="胸に小さな花"></div>
+      </section>
+
+      <section class="group" aria-labelledby="sceneTitle">
+        <h2 id="sceneTitle">構図と場面</h2>
+        <div class="field"><label for="composition">構図</label><input id="composition" name="composition" placeholder="余白を大きく残した構図"></div>
+        <div class="field"><label for="background">背景</label><input id="background" name="background" placeholder="古い図書室"></div>
+        <div class="field"><label for="mood">空気感</label><input id="mood" name="mood" placeholder="透明感のある静けさ"></div>
+        <div class="field"><label for="line">一言</label><input id="line" name="line" placeholder="光は静かにそこへ落ちた"><button class="field-button" type="button" id="poemButton">一言をおまかせ</button></div>
+      </section>
+
+      <div class="actions"><button class="quiet-button" type="reset">空にする</button></div>
+    </form>
+  </main>
+</body>
+</html>

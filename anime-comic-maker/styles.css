@@ -1,0 +1,386 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f4f1ec;
+  --surface: #fffdf8;
+  --surface-soft: #faf7f0;
+  --ink: #162e36;
+  --muted: #6b797d;
+  --line: #d8cbb8;
+  --accent: #285e6c;
+  --accent-ink: #fffdf8;
+  --shadow: 0 18px 44px rgba(25, 46, 54, 0.08);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #10181c;
+  --surface: #172226;
+  --surface-soft: #1d2a2f;
+  --ink: #f2eee6;
+  --muted: #aab8b9;
+  --line: #34464c;
+  --accent: #c5a574;
+  --accent-ink: #10181c;
+  --shadow: 0 18px 44px rgba(0, 0, 0, 0.26);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #10181c;
+    --surface: #172226;
+    --surface-soft: #1d2a2f;
+    --ink: #f2eee6;
+    --muted: #aab8b9;
+    --line: #34464c;
+    --accent: #c5a574;
+    --accent-ink: #10181c;
+    --shadow: 0 18px 44px rgba(0, 0, 0, 0.26);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Noto Sans JP", system-ui, sans-serif;
+  line-height: 1.75;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app {
+  width: min(100%, 1040px);
+  margin: 0 auto;
+  padding: 20px 14px 48px;
+}
+
+.hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 2px 14px;
+}
+
+.back-link,
+.quiet-link {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.back-link:hover,
+.quiet-link:hover {
+  color: var(--accent);
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+h1 {
+  font-size: clamp(24px, 8vw, 42px);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: 16px;
+}
+
+.hero p {
+  max-width: 620px;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.panel,
+.preset-panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 0 14px;
+}
+
+.preset-panel {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding: 12px;
+}
+
+.preset-head {
+  display: grid;
+  gap: 2px;
+}
+
+.preset-head p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.preset-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.output-panel {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  margin-bottom: 14px;
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+  padding: 12px;
+}
+
+.prompt-output {
+  min-height: 180px;
+  max-height: 42svh;
+  margin: 0;
+  overflow: auto;
+  padding: 14px;
+  white-space: pre-wrap;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.prompt-output:empty::before {
+  content: "入力するとここに出力されます。";
+  color: var(--muted);
+}
+
+.form-panel {
+  padding: 10px;
+}
+
+.group {
+  display: grid;
+  gap: 10px;
+  padding: 14px 4px 18px;
+}
+
+.group + .group {
+  border-top: 1px solid var(--line);
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+label {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+input {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: var(--surface-soft);
+  color: var(--ink);
+  outline: none;
+}
+
+input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+input::placeholder {
+  color: color-mix(in srgb, var(--muted) 72%, transparent);
+}
+
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 2px;
+}
+
+.choice-button {
+  min-height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px 10px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.choice-button.is-active {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  color: var(--ink);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 4px 2px;
+}
+
+.copy-button,
+.mode-button,
+.primary-action,
+.field-button,
+.preset-button,
+.quiet-button,
+.quiet-link {
+  min-height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 12px;
+  background: var(--surface-soft);
+  color: var(--ink);
+}
+
+.quiet-link {
+  display: inline-grid;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 120px;
+}
+
+.copy-button,
+.primary-action {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.copy-button {
+  min-width: 96px;
+}
+
+.primary-action {
+  flex: 1.35;
+  font-weight: 700;
+}
+
+.field-button {
+  width: 100%;
+  background: transparent;
+  color: var(--ink);
+}
+
+.preset-button {
+  flex: 1 1 132px;
+  background: transparent;
+  color: var(--ink);
+}
+
+.preset-button:hover,
+.preset-button:focus-visible,
+.quiet-link:hover,
+.quiet-link:focus-visible {
+  border-color: var(--accent);
+}
+
+.copy-button:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.mode-button {
+  flex: 0 0 auto;
+}
+
+.quiet-button {
+  flex: 1 1 120px;
+}
+
+@media (min-width: 760px) {
+  .app {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.86fr);
+    gap: 18px;
+    padding: 32px 20px 64px;
+  }
+
+  .hero,
+  .quick-actions,
+  .preset-panel {
+    grid-column: 1 / -1;
+  }
+
+  .hero {
+    padding-bottom: 4px;
+  }
+
+  .quick-actions {
+    padding-bottom: 0;
+  }
+
+  .preset-panel {
+    margin-bottom: 0;
+  }
+
+  .output-panel {
+    position: sticky;
+    top: 20px;
+    align-self: start;
+    grid-column: 2;
+    grid-row: 4;
+    margin-bottom: 0;
+  }
+
+  .form-panel {
+    grid-column: 1;
+    grid-row: 4;
+  }
+}

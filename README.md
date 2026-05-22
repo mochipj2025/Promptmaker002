@@ -4,7 +4,7 @@ M.O.C.H.I. LABOのプロンプト制作ツール置き場です。
 
 ## Current Main Tool
 
-いま使う中心ツールは `simple-character-promptmaker/`、`real-portrait-maker/`、`content-kit/`、`five-question-character-maker/` です。
+いま使う中心ツールは `simple-character-promptmaker/`、`real-portrait-maker/`、`art-character-maker/`、`anime-comic-maker/`、`content-kit/`、`five-question-character-maker/` です。
 
 `dev/` は試作、記事メモ、旧入口を置く場所です。
 
@@ -38,6 +38,30 @@ M.O.C.H.I. LABOのプロンプト制作ツール置き場です。
   - 肌の色、肌の質感、顔立ち、表情を選択
   - 自然光、窓辺の光、夜の街灯など光の条件を指定
   - リアルポートレート向けのプリセットから一括入力
+  - 詳細編集として全部入りのキャラクタープロンプトメーカーへ移動
+
+### アートキャラクターMaker
+
+水彩、絵本、版画、切り絵など、アート寄りのキャラクターPromptを作るツールです。
+
+- 場所: `art-character-maker/`
+- 入口: `index.html`
+- できること:
+  - 絵柄と質感を先に決める
+  - 余白、紙、にじみ、インク、筆あとなどをPromptへ入れる
+  - 種族や象徴アイテムを静かな絵作りへ反映
+  - 詳細編集として全部入りのキャラクタープロンプトメーカーへ移動
+
+### 漫画・アニメキャラMaker
+
+漫画、アニメ、少女漫画、レトロ漫画向けのキャラクターPromptを作るツールです。
+
+- 場所: `anime-comic-maker/`
+- 入口: `index.html`
+- できること:
+  - 線、頭身、髪と目、表情、ポーズを中心に指定
+  - キャラカード、三面図、SNSアイコン向けPromptに展開
+  - 漫画・アニメ寄りのプリセットから一括入力
   - 詳細編集として全部入りのキャラクタープロンプトメーカーへ移動
 
 ### Content Prompt Kit

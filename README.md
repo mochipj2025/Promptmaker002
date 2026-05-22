@@ -4,15 +4,15 @@ M.O.C.H.I. LABOのプロンプト制作ツール置き場です。
 
 ## Current Main Tool
 
-いま使う中心ツールは `simple-character-promptmaker/`、`content-kit/`、`five-question-character-maker/` です。
+いま使う中心ツールは `simple-character-promptmaker/`、`real-portrait-maker/`、`content-kit/`、`five-question-character-maker/` です。
 
 `dev/` は試作、記事メモ、旧入口を置く場所です。
 
 ## Tools
 
-### キャラクタープロンプトメーカー
+### キャラクタープロンプトメーカー / 詳細編集
 
-短い日本語入力から、画像生成AI向けの自然な箇条書きキャラクタープロンプトを作るツールです。
+短い日本語入力から、画像生成AI向けの自然な箇条書きキャラクタープロンプトを作る全部入りの詳細編集ツールです。
 
 - 場所: `simple-character-promptmaker/`
 - 入口: `index.html`
@@ -26,6 +26,19 @@ M.O.C.H.I. LABOのプロンプト制作ツール置き場です。
   - 空欄を省いて、改行構造を保った日本語プロンプトを生成
   - 生成結果だけをコピー
   - 一言を現在の雰囲気に合わせて生成
+
+### リアルポートレートMaker
+
+リアル寄りの人物Promptを、年齢差分、肌の質感、光、表情を中心に作るツールです。
+
+- 場所: `real-portrait-maker/`
+- 入口: `index.html`
+- できること:
+  - 頭身ではなく、年齢レンジと年齢の見え方を優先
+  - 肌の色、肌の質感、顔立ち、表情を選択
+  - 自然光、窓辺の光、夜の街灯など光の条件を指定
+  - リアルポートレート向けのプリセットから一括入力
+  - 詳細編集として全部入りのキャラクタープロンプトメーカーへ移動
 
 ### Content Prompt Kit
 

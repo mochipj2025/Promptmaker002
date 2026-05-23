@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="LPの型を選んで、ファーストビューからCTAまでの構成設計書を作るツールです。">
+  <title>LP構成Maker</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <div>
+        <a class="back-link" href="../">← トップに戻る</a>
+        <p class="eyebrow">Promptmaker</p>
+        <h1>LP構成Maker</h1>
+        <p>LPの型を選んで、必要なセクション、役割、CTA、素材方針を設計します。</p>
+      </div>
+      <button class="mode-button" type="button" id="modeButton" aria-pressed="false">暗色</button>
+    </header>
+
+    <div class="quick-actions" aria-label="すぐ使う操作">
+      <button class="primary-action" type="button" id="sampleButton">例を入れる</button>
+      <button class="quiet-button" type="reset" form="lpForm">空にする</button>
+    </div>
+
+    <section class="panel output-panel" aria-label="生成結果">
+      <div class="panel-head">
+        <h2>LP構成</h2>
+        <button class="copy-button" type="button" id="copyButton" disabled>コピー</button>
+      </div>
+      <pre class="structure-output" id="structureOutput" aria-live="polite"></pre>
+    </section>
+
+    <form class="panel form-panel" id="lpForm" autocomplete="off">
+      <section class="group" aria-labelledby="typeTitle">
+        <h2 id="typeTitle">LPの型</h2>
+        <div class="field">
+          <label for="lpType">LPタイプ</label>
+          <input id="lpType" name="lpType" placeholder="予約・申込型">
+        </div>
+        <div class="field">
+          <label for="tone">トーン</label>
+          <input id="tone" name="tone" placeholder="静かで信頼感がある">
+        </div>
+      </section>
+
+      <section class="group" aria-labelledby="goalTitle">
+        <h2 id="goalTitle">目的</h2>
+        <div class="field">
+          <label for="offerName">名前</label>
+          <input id="offerName" name="offerName" placeholder="小さな予約ページ">
+        </div>
+        <div class="field">
+          <label for="purpose">目的</label>
+          <input id="purpose" name="purpose" placeholder="予約につなげる">
+        </div>
+        <div class="field">
+          <label for="audience">対象</label>
+          <input id="audience" name="audience" placeholder="初めて見る人">
+        </div>
+        <div class="field">
+          <label for="mainOffer">中心に見せるもの</label>
+          <input id="mainOffer" name="mainOffer" placeholder="安心して申し込めるサービス内容">
+        </div>
+        <div class="field">
+          <label for="cta">CTA</label>
+          <input id="cta" name="cta" placeholder="予約する">
+        </div>
+      </section>
+    </form>
+  </main>
+</body>
+</html>

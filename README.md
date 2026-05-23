@@ -4,7 +4,7 @@ M.O.C.H.I. LABOのプロンプト制作ツール置き場です。
 
 ## Current Main Tool
 
-いま使う中心ツールは `simple-character-promptmaker/`、`real-portrait-maker/`、`art-character-maker/`、`anime-comic-maker/`、`content-kit/`、`five-question-character-maker/` です。
+いま使う中心ツールは `simple-character-promptmaker/`、`real-portrait-maker/`、`art-character-maker/`、`anime-comic-maker/`、`content-kit/`、`lp-structure-maker/`、`five-question-character-maker/` です。
 
 `dev/` は試作、記事メモ、旧入口を置く場所です。
 
@@ -79,6 +79,18 @@ M.O.C.H.I. LABOのプロンプト制作ツール置き場です。
   - 雑誌レイアウトや文字スペースを選ぶ
   - note見出し画像、SNSカルーセル、特集ページ向けにPromptを生成
   - 生成結果をコピー
+
+### LP構成Maker
+
+LPの型を選んで、ファーストビューからCTAまでの構成設計書を作るツールです。
+
+- 場所: `lp-structure-maker/`
+- 入口: `index.html`
+- できること:
+  - 販売型、予約・申込型、登録型、アプリ型、世界観型など8種類から選択
+  - 目的、対象、中心に見せるもの、CTAを整理
+  - セクションごとの役割と必要素材を出力
+  - 後続のLP素材Prompt Makerへつなげやすい設計書を作成
 
 ### 本の世界転生オリキャラMaker
 

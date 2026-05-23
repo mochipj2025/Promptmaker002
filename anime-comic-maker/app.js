@@ -192,7 +192,7 @@ const options = {
   characterType: ["妹系", "姉系", "お母さん系", "先輩系", "後輩系", "クール系", "元気な相棒系", "小さな先生系", "無口な案内役系"],
   gender: ["女性キャラクター", "男性キャラクター", "中性的なキャラクター", "性別不明のキャラクター"],
   species: ["人間", "エルフ", "獣人", "妖精", "魔法使い", "アンドロイド", "吸血鬼"],
-  bodyType: ["細身", "小柄", "華奢", "すらっとした体型", "中性的な体型"],
+  bodyType: ["デフォルメ体型", "コンパクトな体型", "小柄", "華奢", "細身", "すらっとした体型", "中性的な体型"],
   faceType: ["中性的な顔", "幼い顔", "大人っぽい顔", "やわらかい顔", "無表情が似合う顔"],
   expression: ["静かな表情", "少し笑っている", "眠そうな表情", "困ったような表情", "遠くを見ている表情"],
   faceItem: ["眼帯", "丸眼鏡", "ピアス", "そばかす", "泣きぼくろ", "小さな傷"],
@@ -251,10 +251,24 @@ function getValue(id) {
   return document.querySelector(`#${id}`).value;
 }
 
+function isLowProportion(value) {
+  return ["2頭身", "3頭身", "5頭身"].includes(clean(value));
+}
+
+function bodyTypeForPrompt(value) {
+  const bodyType = clean(value);
+  if (!bodyType) return "";
+  if (isLowProportion(getValue("proportion")) && ["細身", "すらっとした体型"].includes(bodyType)) {
+    return "コンパクトなデフォルメ体型";
+  }
+  return bodyType;
+}
+
 function buildPrompt() {
   const groups = [];
   fields.forEach((field) => {
-    const line = field.quote ? quote(getValue(field.id)) : sentence(getValue(field.id));
+    const value = field.id === "bodyType" ? bodyTypeForPrompt(getValue(field.id)) : getValue(field.id);
+    const line = field.quote ? quote(value) : sentence(value);
     if (!line) return;
     if (!groups[field.group]) groups[field.group] = [];
     groups[field.group].push(line);
@@ -355,6 +369,9 @@ function setRandomValues() {
     const values = options[field.id] || [];
     data[field.id] = values.length ? pickRandom(values) : "";
   });
+  if (isLowProportion(data.proportion) && ["細身", "すらっとした体型"].includes(data.bodyType)) {
+    data.bodyType = pickRandom(["デフォルメ体型", "コンパクトな体型", "小柄"]);
+  }
   setValues(data);
 }
 

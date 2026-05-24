@@ -173,14 +173,43 @@ h2 {
   padding: 10px;
 }
 
+.guide-strip {
+  display: grid;
+  gap: 8px;
+  padding: 4px 4px 14px;
+}
+
+.guide-strip span {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: var(--surface-soft);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .group {
   display: grid;
   gap: 10px;
-  padding: 14px 4px 18px;
+  padding: 16px 4px 20px;
 }
 
 .group + .group {
   border-top: 1px solid var(--line);
+}
+
+.step-label {
+  display: inline-grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .field {
@@ -271,6 +300,50 @@ input::placeholder {
   flex: 1 1 120px;
 }
 
+.optional-panel,
+.learn-panel {
+  border-top: 1px solid var(--line);
+}
+
+summary {
+  min-height: 48px;
+  padding: 12px 4px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  list-style-position: inside;
+  cursor: pointer;
+}
+
+.optional-group {
+  border-top: 0;
+  padding-top: 6px;
+}
+
+.learn-list {
+  display: grid;
+  gap: 8px;
+  padding: 0 4px 16px;
+}
+
+.learn-list p {
+  display: grid;
+  gap: 2px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: var(--surface-soft);
+}
+
+.learn-list strong {
+  font-size: 13px;
+}
+
+.learn-list span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
 @media (min-width: 760px) {
   .app {
     display: grid;
@@ -296,5 +369,9 @@ input::placeholder {
   .form-panel {
     grid-column: 1;
     grid-row: 3;
+  }
+
+  .guide-strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
